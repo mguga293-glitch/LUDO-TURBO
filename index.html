@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Ludo Turbo</title><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<section id="menu" class="scr on"><div id="lt">
+<button class="lt-ic l" aria-label="Som" id="sndm" onclick="SFX.toggle()"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.7 7.7 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.5 7.5 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.5 7.5 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.7 7.7 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1c.5.4 1.1.7 1.7 1l.4 2.6h4l.4-2.6c.6-.3 1.2-.6 1.7-1l2.500 1 2-3.500zM12 15.500a3.500 3.500 0 1 1 0-7 3.500 3.500 0 0 1 0 7z"/></svg></button>
+<button class="lt-ic r" aria-label="Jogar online" onclick="openOnline()"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.200"/><circle cx="5" cy="9.500" r="2.500"/><circle cx="19" cy="9.500" r="2.500"/><path d="M12 11.500c-3.500 0-6 2-6 4.500v3.500h12V16c0-2.500-2.500-4.500-6-4.500zM5 12.500C2.500 12.500 1 14 1 16v2.500h3.500V16c0-1.500.6-2.800 1.700-3.500zm14 0c-.4 0-.8.1-1.200.2 1.100.8 1.700 2 1.700 3.300v2.500H23V16c0-2-1.500-3.500-4-3.500z"/></svg></button>
+<div class="lt-tag t1">Divirta-se<br>com seus<br><b>amigos!</b></div>
+<div class="lt-tag t2">Ludo<br>é sempre<br>uma boa<br><b>jogada!</b></div>
+<div class="lt-c">
+<div class="mimg"><img src="assets/img/img-37.webp" alt="Ludo Turbo"><div id="md"><span class="pill" data-m="0" role="button" aria-label="Clássico" style="left:3.93%;top:31.80%;width:47.47%;height:9.54%"></span><span class="pill on" data-m="1" role="button" aria-label="Turbo" style="left:51.80%;top:31.80%;width:44.67%;height:9.54%"></span></div><div id="np"><span class="pill" data-n="2" role="button" aria-label="2 jogadores" style="left:5.29%;top:48.12%;width:18.28%;height:8.84%"></span><span class="pill" data-n="3" role="button" aria-label="3 jogadores" style="left:23.10%;top:48.12%;width:18.28%;height:8.84%"></span><span class="pill on" data-n="4" role="button" aria-label="4 jogadores" style="left:40.90%;top:48.12%;width:18.28%;height:8.84%"></span><span class="pill" data-n="5" role="button" aria-label="5 jogadores" style="left:58.70%;top:48.12%;width:18.28%;height:8.84%"></span><span class="pill" data-n="6" role="button" aria-label="6 jogadores" style="left:76.34%;top:48.12%;width:18.28%;height:8.84%"></span></div><button class="hs bots" aria-label="Jogar partida rápida" onclick="go(true)" style="left:2.41%;top:59.13%;width:95.03%;height:10.86%"></button><button class="hs amigos" aria-label="Jogar com amigos na mesma tela" onclick="go(false)" style="left:2.41%;top:71.15%;width:95.03%;height:9.11%"></button><button class="hs online" aria-label="Jogar online" onclick="openOnline()" style="left:2.41%;top:81.23%;width:95.03%;height:8.72%"></button><button class="hs regras" aria-label="Regras e cartas" onclick="ov('rules')" style="left:2.41%;top:90.54%;width:95.03%;height:8.72%"></button></div></div></div></section>
+<section id="game" class="scr">
+<div id="pl0" class="pl"></div><div id="pl1" class="pl"></div><div id="pl2" class="pl"></div><div id="pl3" class="pl"></div><div id="pl4" class="pl"></div><div id="pl5" class="pl"></div>
+<aside class="pn2" id="leg"></aside>
+<div class="board" id="bd"></div>
+<div class="pn2" id="dbox"><div id="tt"></div><button class="btn bb" id="rb" onclick="hroll()">Lançar Dado</button></div>
+<div class="pn2" id="hbox"><h4>Suas cartas (<span id="hc">0/3</span>)</h4><div class="hand" id="hand"></div><button class="btn bb" id="hdisc" onclick="toggleDisc()">🗑 Descartar carta</button><button class="btn bb" onclick="verCartas()">Ver cartas</button></div>
+<div class="pn2" id="cards"></div><div id="cpg"><button class="cpl" aria-label="Cartas anteriores" onclick="cardPg(1)"></button><button class="cpr" aria-label="Mais cartas" onclick="cardPg(2)"></button></div>
+<div id="btns"><button class="ib" onclick="show('menu')">☰</button><button class="ib" onclick="ov('rules')">Regras</button><button class="ib" id="sndb" aria-label="Som" onclick="SFX.toggle()">🔊</button></div>
+<div id="emo"><button class="e1" aria-label="Emojis" onclick="emoT('emp')"></button><button class="e2" aria-label="Chat" onclick="emoT('cht')"></button></div>
+<div class="log" id="log"></div>
+<div class="pn2" id="mode"></div>
+</section>
+<div class="ov" id="rules" onclick="this.classList.remove('on')"><div class="card"><h2>Regras do Ludo Turbo</h2><ul>
+<li>Tire <b>6</b> para tirar um peão da base. Todo 6 dá jogada extra.</li>
+<li>Mova o número exato do dado. Cair sobre um adversário o <b>captura</b> (e dá jogada extra), exceto em casas seguras (◎ e saídas coloridas).</li>
+<li>As últimas <b>6 casas</b> coloridas antes do centro são exclusivas da sua cor: nada ali pode ser capturado. Chegue ao centro com número exato (ganha jogada extra).</li>
+<li>Vence quem levar os 4 peões ao centro.</li><li>Com os 4 peões na base, após 3 tentativas sem tirar 6, um peão sai na hora.</li><li><b>Modos 5 e 6 jogadores</b>: tabuleiro em estrela com 6 braços e 78 casas no circuito; no modo de 5, o braço do Roxo fica vazio (só local ou contra bots, sem online).</li><li><b>Modo Clássico</b>: só regras normais, sem casas especiais, cartas ou bônus. <b>Modo Turbo</b>: tudo isso ativado. Toque nas casas coloridas do tabuleiro para ver o que fazem.</li></ul>
+<h2>Casas especiais</h2><ul><li>★ <b>Estrela</b>: veja 4 cartas aleatórias, que são viradas e embaralhadas; depois escolha 1 delas e confirme em até 20 segundos (se o tempo acabar, a carta marcada ou uma aleatória é escolhida). Guarde até 3 e use clicando na carta antes de lançar o dado.</li><li>🗑 <b>Descartar</b>: antes de lançar o dado, use o botão "Descartar carta" e toque na carta da sua mão que quer jogar fora. Se você tem 3 cartas e cai na casa Estrela, ela não funciona e você não pode descartar naquela hora.</li><li>🛡 <b>Escudo</b>: o peão fica protegido por apenas 2 rodadas (jogadas extras não contam); depois o escudo some.</li><li>⚔ <b>Duelo</b>: quando dois peões adversários ficam na mesma casa Duelo, os dois lançam o dado; quem tirar o menor número é eliminado. Peão sozinho na casa não faz nada.</li><li>⚡ <b>Turbo</b>: avança 3 casas extras.</li></ul>
+<h2>12 cartas únicas</h2><ul><li>Escudo · Caçador · Duelo Mortal · Velocidade Máxima · Teletransporte · Peão Extra · Ordem Real · Espelho Mágico · Troca de Posição · Jogada Extra · Sorte ou Azar · Congelamento</li><li>Nenhuma carta atinge peões na reta final ou em casas seguras (exceto que, na Troca de Posição, o seu próprio peão pode sair de uma casa segura). O Espelho Mágico fica na mão e devolve um Caçador contra quem atacou.</li></ul>
+<p style="color:#8aa">Toque para fechar</p></div></div>
+<div class="ov" id="on"><div class="card" style="text-align:center;min-width:280px"><h2>🌐 Jogar online</h2><div id="onb"></div><button class="btn sm by" onclick="$('#on').classList.remove('on')">Fechar</button></div></div>
+<div class="ov" id="sa"><div class="card scard"><div class="stt">❓ Sorte ou Azar</div><div class="ssub">1–3: recua 3 casas · 4–6: avança 5 casas</div><div class="sdw"><div class="dd" id="sad"></div></div><div id="sar"></div></div></div>
+<div class="ov" id="du"><div class="card dcard"><div class="duw"><div class="dus" id="du1"></div><div class="dus" id="du2"></div></div><div id="dur"></div></div></div>
+<div class="ov" id="cp"><div class="card" role="dialog" aria-modal="true" aria-label="Escolha sua carta"><div class="cpl" id="cpl"></div><div id="cpt" role="status" aria-live="polite"></div><button class="btn" id="cpb" type="button" disabled onclick="cpOk()" aria-label="Confirmar escolha"></button></div></div>
+<div class="ov" id="win"><div class="wconf" id="wconf"></div><div class="card wcard" id="wc"></div></div>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.78.0/dist/umd/supabase.min.js"></script>
+
+<script src="js/util.js"></script>
+<script src="js/sfx.js"></script>
+<script src="js/board-data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/ui-extras.js"></script>
+<script src="js/duel.js"></script>
+<script src="js/online.js"></script>
+<script src="js/win.js"></script><script src="js/skin.js"></script>
+<div id="emp"><button onclick="emoS('😂')">😂</button><button onclick="emoS('😍')">😍</button><button onclick="emoS('😎')">😎</button><button onclick="emoS('😡')">😡</button><button onclick="emoS('😭')">😭</button><button onclick="emoS('👏')">👏</button><button onclick="emoS('🔥')">🔥</button><button onclick="emoS('🎲')">🎲</button></div><div id="cht"><input id="chi" maxlength="40" placeholder="Digite uma mensagem"><button onclick="emoS(document.getElementById('chi').value)">Enviar</button></div><div id="bub"></div>
+<script src="js/layout-fix.js"></script></body></html>
